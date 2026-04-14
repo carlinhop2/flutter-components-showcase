@@ -57,10 +57,76 @@ lib/
 
 ## Prerequisites
 
-- **Flutter ≥ 3.22** (tested with 3.41) — [install guide](https://docs.flutter.dev/get-started/install)
+- **Flutter ≥ 3.22** (tested with 3.41)
 - **Chrome** (for web development)
 - **Android Studio** with an Android emulator or physical device
 - **iOS**: requires macOS with Xcode 15+
+
+---
+
+## Installing Flutter
+
+### macOS
+
+```bash
+# 1. Download the latest stable Flutter SDK
+#    (replace the URL with the latest from https://docs.flutter.dev/release/archive)
+curl -O https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_3.41.0-stable.tar.xz
+
+# 2. Extract to your preferred location (~/development is recommended)
+mkdir -p ~/development
+tar -xf flutter_macos_arm64_3.41.0-stable.tar.xz -C ~/development
+
+# 3. Add Flutter to your PATH — add this line to ~/.zshrc (or ~/.bash_profile)
+echo 'export PATH="$HOME/development/flutter/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+# 4. Verify the installation
+flutter doctor
+```
+
+### Linux
+
+```bash
+# 1. Download the latest stable Flutter SDK
+#    (replace the URL with the latest from https://docs.flutter.dev/release/archive)
+wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.41.0-stable.tar.xz
+
+# 2. Extract to your preferred location (~/development is recommended)
+mkdir -p ~/development
+tar -xf flutter_linux_3.41.0-stable.tar.xz -C ~/development
+
+# 3. Add Flutter to your PATH — add this line to ~/.bashrc (or ~/.zshrc)
+echo 'export PATH="$HOME/development/flutter/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# 4. Verify the installation
+flutter doctor
+```
+
+### Windows
+
+```powershell
+# 1. Download the latest stable Flutter SDK from:
+#    https://docs.flutter.dev/release/archive
+#    e.g. flutter_windows_3.41.0-stable.zip
+
+# 2. Extract the zip to C:\src\flutter (or any path without spaces)
+
+# 3. Add Flutter to your PATH permanently (run in PowerShell as Administrator)
+[System.Environment]::SetEnvironmentVariable(
+    "Path",
+    $Env:Path + ";C:\src\flutter\bin",
+    [System.EnvironmentVariableTarget]::User
+)
+
+# 4. Open a new terminal and verify the installation
+flutter doctor
+```
+
+> **Tip:** `flutter doctor` checks your environment and lists any missing dependencies (Android SDK, Xcode, Chrome, etc.) with actionable fix instructions. Resolve all issues before proceeding.
+>
+> For the full official guide, see [docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install).
 
 ---
 
