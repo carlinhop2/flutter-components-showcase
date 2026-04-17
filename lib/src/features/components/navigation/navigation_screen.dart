@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -28,6 +29,7 @@ class _NavigationScreenState extends State<NavigationScreen>
     return Scaffold(
       appBar: AppBar(
         title: const Text('Navigation'),
+        actions: const [ThemeSelectorAction()],
         bottom: TabBar(
           controller: _outerTabController,
           tabs: const [

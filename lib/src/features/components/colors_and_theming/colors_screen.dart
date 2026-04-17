@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
-class ColorsScreen extends StatefulWidget {
+class ColorsScreen extends StatelessWidget {
   const ColorsScreen({super.key});
-
-  @override
-  State<ColorsScreen> createState() => _ColorsScreenState();
-}
-
-class _ColorsScreenState extends State<ColorsScreen> {
-  bool _showDark = false;
 
   static const List<_ColorRole> _roles = [
     _ColorRole('primary', 'onPrimary'),
@@ -29,67 +23,40 @@ class _ColorsScreenState extends State<ColorsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final lightScheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xFF6750A4),
-      brightness: Brightness.light,
-    );
-    final darkScheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xFF6750A4),
-      brightness: Brightness.dark,
-    );
-    final scheme = _showDark ? darkScheme : lightScheme;
+    final scheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Colors & Theming'),
-        actions: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.light_mode),
-              Switch(
-                value: _showDark,
-                onChanged: (v) => setState(() => _showDark = v),
-              ),
-              const Icon(Icons.dark_mode),
-              const SizedBox(width: 8),
-            ],
-          ),
-        ],
+        actions: const [ThemeSelectorAction()],
       ),
-      body: Theme(
-        data: ThemeData(
-          useMaterial3: true,
-          colorScheme: scheme,
+      body: GridView.builder(
+        padding: const EdgeInsets.all(8),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 2.8,
+          crossAxisSpacing: 4,
+          mainAxisSpacing: 4,
         ),
-        child: GridView.builder(
-          padding: const EdgeInsets.all(8),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 2.8,
-            crossAxisSpacing: 4,
-            mainAxisSpacing: 4,
-          ),
-          itemCount: _roles.length,
-          itemBuilder: (context, index) {
-            final role = _roles[index];
-            final bg = role.resolveBackground(scheme);
-            final fg = role.resolveForeground(scheme);
-            return Container(
-              color: bg,
-              alignment: Alignment.center,
-              child: Text(
-                role.name,
-                style: TextStyle(
-                  color: fg,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
+        itemCount: _roles.length,
+        itemBuilder: (context, index) {
+          final role = _roles[index];
+          final bg = role.resolveBackground(scheme);
+          final fg = role.resolveForeground(scheme);
+          return Container(
+            color: bg,
+            alignment: Alignment.center,
+            child: Text(
+              role.name,
+              style: TextStyle(
+                color: fg,
+                fontSize: 11,
+                fontWeight: FontWeight.w500,
               ),
-            );
-          },
-        ),
+              textAlign: TextAlign.center,
+            ),
+          );
+        },
       ),
     );
   }

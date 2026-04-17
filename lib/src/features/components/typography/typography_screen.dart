@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
 class TypographyScreen extends StatelessWidget {
   const TypographyScreen({super.key});
@@ -10,7 +11,10 @@ class TypographyScreen extends StatelessWidget {
     final cs = theme.colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Typography')),
+      appBar: AppBar(
+        title: const Text('Typography'),
+        actions: const [ThemeSelectorAction()],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
 class CardsScreen extends StatelessWidget {
   const CardsScreen({super.key});
@@ -7,7 +8,10 @@ class CardsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Cards & Lists')),
+      appBar: AppBar(
+        title: const Text('Cards & Lists'),
+        actions: const [ThemeSelectorAction()],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

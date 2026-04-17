@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
 class DialogsScreen extends StatelessWidget {
   const DialogsScreen({super.key});
@@ -6,7 +7,10 @@ class DialogsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Dialogs & Sheets')),
+      appBar: AppBar(
+        title: const Text('Dialogs & Sheets'),
+        actions: const [ThemeSelectorAction()],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

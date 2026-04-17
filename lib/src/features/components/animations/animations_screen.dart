@@ -1,6 +1,7 @@
 import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
 class AnimationsScreen extends StatefulWidget {
   const AnimationsScreen({super.key});
@@ -55,7 +56,10 @@ class _AnimationsScreenState extends State<AnimationsScreen>
     final cs = theme.colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Animations')),
+      appBar: AppBar(
+        title: const Text('Animations'),
+        actions: const [ThemeSelectorAction()],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -207,7 +211,10 @@ class _HeroDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('Hero Detail')),
+      appBar: AppBar(
+        title: const Text('Hero Detail'),
+        actions: const [ThemeSelectorAction()],
+      ),
       body: Center(
         child: Hero(
           tag: 'hero-box',

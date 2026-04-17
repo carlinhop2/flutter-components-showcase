@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../core/theme/theme_selector_action.dart';
 import '../providers/showcase_provider.dart';
 import '../widgets/showcase_drawer.dart';
 
@@ -18,6 +19,7 @@ class ShowcaseScreen extends ConsumerWidget {
         title: const Text('Flutter Showcase'),
         backgroundColor: cs.primaryContainer,
         foregroundColor: cs.onPrimaryContainer,
+        actions: const [ThemeSelectorAction()],
       ),
       drawer: const ShowcaseDrawer(),
       body: itemsResult.fold(

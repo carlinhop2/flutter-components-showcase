@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
 class TextFieldsScreen extends StatefulWidget {
   const TextFieldsScreen({super.key});
@@ -14,7 +15,10 @@ class _TextFieldsScreenState extends State<TextFieldsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Text Fields')),
+      appBar: AppBar(
+        title: const Text('Text Fields'),
+        actions: const [ThemeSelectorAction()],
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Form(

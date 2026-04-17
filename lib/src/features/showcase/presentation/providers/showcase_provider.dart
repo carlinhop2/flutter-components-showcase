@@ -1,4 +1,4 @@
-import 'package:fpdart/fpdart.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../data/repositories/component_repository.dart';
 import '../../domain/models/component_item.dart';

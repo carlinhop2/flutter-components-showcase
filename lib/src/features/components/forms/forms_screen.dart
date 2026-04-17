@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/theme/theme_selector_action.dart';
 
 class FormsScreen extends StatefulWidget {
   const FormsScreen({super.key});
@@ -28,7 +29,10 @@ class _FormsScreenState extends State<FormsScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Forms')),
+      appBar: AppBar(
+        title: const Text('Forms'),
+        actions: const [ThemeSelectorAction()],
+      ),
       body: ListView(
         children: [
           Padding(
